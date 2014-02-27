@@ -11,6 +11,21 @@ class User(db.Model):
     role = db.Column(db.SmallInteger, default = ROLE_USER)
     tweets = db.relationship('Tweet', backref = 'author', lazy = 'dynamic')
 
+    @property
+    def serialize(self):
+        return {
+            'id'        : self.id,
+            'username'  : self.username,
+            'photo_url' : self.photo_url,
+            'bus'       : self.bus,
+            'tweets'    : self.serialize_tweets
+        }
+
+    @property
+    def serialize_tweets(self):
+        return [tweet.serialize for tweet in self.tweets]
+
+
     def __repr__(self):
         return '<User %r>' % (self.username)
 
@@ -23,6 +38,22 @@ class Tweet(db.Model):
     lat = db.Column(db.String(50))
     lon = db.Column(db.String(50))
 
+    @property
+    def serialize(self):
+        return {
+            'id'        : self.id,
+            'body'  : self.body,
+            'timestamp' : dump_datetime(self.timestamp),
+            'lat'    : self.lat,
+            'lon'    : self.lon
+        }
+
     def __repr__(self):
         return '<Post %r>' % (self.body)
+
+def dump_datetime(value):
+    """Deserialize datetime object into string form for JSON processing."""
+    if value is None:
+        return None
+    return [value.strftime("%Y-%m-%d"), value.strftime("%H:%M:%S")]
 

@@ -16,10 +16,8 @@ from config import CONSUMER_SECRET
 consumer_key = CONSUMER_KEY
 consumer_secret = CONSUMER_SECRET
 
-def main():
+def fetch_tweets(username, bus):
     api = twitter_api.Api(consumer_key, consumer_secret)
-    username = 'scwbkk'
-    bus = 'Midwest'
     results = api.get_timeline(username)
     for tweet in results: #iterate tweet results
         tweet_user = tweet['user']
@@ -27,8 +25,8 @@ def main():
             continue
         user = models.User.query.filter_by(username=username).first()
         if not user: #if there is no user, save this one
-            u = models.User(username=username, photo_url=tweet_user['profile_image_url'], bus=bus, role=models.ROLE_USER)
-            db.session.add(u)
+            user = models.User(username=username, photo_url=tweet_user['profile_image_url'], bus=bus, role=models.ROLE_USER)
+            db.session.add(user)
             db.session.commit()
         tweet_id = tweet['id']
         tweet_already_here = models.Tweet.query.filter_by(tweet_id=tweet_id).first()
@@ -44,6 +42,12 @@ def main():
         twit = models.Tweet(tweet_id=tweet_id, body=tweet['text'], timestamp=time_struct, lat=lat, lon=lon, author=user)
         db.session.add(twit)
         db.session.commit()
+
+def main():
+    #username = 'scwbkk'
+    username = 'carl_talks'
+    bus = 'Midwest'
+    fetch_tweets(username, bus)
 
 if __name__ == '__main__':
     main()
