@@ -1,5 +1,4 @@
 #Likely need to rip all of this out. only should serve as reference
-
 import os
 import sys
 import base64

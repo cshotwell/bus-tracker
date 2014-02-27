@@ -1,3 +1,4 @@
+# explore streaming api
 import urllib
 import httplib
 import json
@@ -30,6 +31,22 @@ class Api(object):
         response = requestor.getresponse()
         d = json.load(response)
         return d["access_token"]
+
+    def get_timeline(self, username):
+        auth_token = self._get_auth()
+
+        url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=%s&include_rts=false" % username 
+        
+        auth_param = "Bearer %s" % auth_token.strip()
+        headers = { 
+        "Authorization" : auth_param,
+            "Content-Type" : "application/x-www-form-urlencoded;charset=UTF-8",
+        "Accept" : "*/*"
+        }   
+        requestor = httplib.HTTPSConnection('api.twitter.com')
+        requestor.request("GET", url, headers=headers)
+        response = requestor.getresponse()
+        return json.loads(response.read())
 
     def get_search(self, tag):
         auth_token = self._get_auth()

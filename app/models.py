@@ -6,7 +6,7 @@ ROLE_ADMIN = 1
 class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(64), unique = True)
-    photo_url = db.Column(db.String(120), unique = True)
+    photo_url = db.Column(db.String(120))
     bus = db.Column(db.String(50))
     role = db.Column(db.SmallInteger, default = ROLE_USER)
     tweets = db.relationship('Tweet', backref = 'author', lazy = 'dynamic')
@@ -16,9 +16,12 @@ class User(db.Model):
 
 class Tweet(db.Model):
     id = db.Column(db.Integer, primary_key = True)
+    tweet_id = db.Column(db.String(50), unique = True)
     body = db.Column(db.String(300))
     timestamp = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    lat = db.Column(db.String(50))
+    lon = db.Column(db.String(50))
 
     def __repr__(self):
         return '<Post %r>' % (self.body)
