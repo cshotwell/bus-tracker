@@ -32,21 +32,28 @@ function initialize() {
         var marker;
         switch(bus) {
             case "South":
+                marker = "https://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png";
                 break;
             case "Mexico":
+                marker = "https://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png";
                 break;
             case "Midwest":
+                marker = "https://maps.gstatic.com/mapfiles/ms2/micons/green-dot.png";
                 break;
             case "WestCoast":
+                marker = "https://maps.gstatic.com/mapfiles/ms2/micons/ltblue-dot.png";
                 break;
             case "Southeast":
+                marker = "https://maps.gstatic.com/mapfiles/ms2/micons/yellow-dot.png";
                 break;
             case "North":
+                marker = "https://maps.gstatic.com/mapfiles/ms2/micons/purple-dot.png";
                 break;
             case "Northeast":
+                marker = "https://maps.gstatic.com/mapfiles/ms2/micons/pink-dot.png";
                 break;
             default:
-                marker = 'default';
+                marker = "http://labs.google.com/ridefinder/images/mm_20_black.png";
                 break;
         }
         return marker;
@@ -63,7 +70,8 @@ function initialize() {
                             position: new google.maps.LatLng(parseFloat(tweet.lat), parseFloat(tweet.lon)), 
                             map: map, 
                             name: tweet.body,
-                            tweet_id: tweet.tweet_id
+                            tweet_id: tweet.tweet_id,
+                            icon: fetch_bus_icon(user.bus)
                         });
 
                         google.maps.event.addListener(new_marker, 'click', function() {
