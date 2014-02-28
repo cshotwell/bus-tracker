@@ -42,10 +42,11 @@ class Tweet(db.Model):
     def serialize(self):
         return {
             'id'        : self.id,
+            'tweet_id'  : self.tweet_id,
             'body'  : self.body,
             'timestamp' : dump_datetime(self.timestamp),
-            'lat'    : self.lat,
-            'lon'    : self.lon
+            'lon'    : self.lat,
+            'lat'    : self.lon
         }
 
     def __repr__(self):

@@ -44,8 +44,8 @@ def fetch_tweets(username, bus):
         db.session.commit()
 
 def main():
-    #username = 'scwbkk'
-    username = 'carl_talks'
+    username = 'scwbkk'
+    #username = 'carl_talks'
     bus = 'Midwest'
     fetch_tweets(username, bus)
 
