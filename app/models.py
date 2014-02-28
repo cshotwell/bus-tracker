@@ -44,7 +44,7 @@ class Tweet(db.Model):
             'id'        : self.id,
             'tweet_id'  : self.tweet_id,
             'body'  : self.body,
-            'timestamp' : dump_datetime(self.timestamp),
+#            'timestamp' : dump_datetime(self.timestamp),
             'lon'    : self.lat,
             'lat'    : self.lon
         }

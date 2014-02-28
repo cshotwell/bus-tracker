@@ -29,7 +29,7 @@ def fetch_tweets(username, bus):
             db.session.add(user)
             db.session.commit()
         tweet_id = tweet['id']
-        tweet_already_here = models.Tweet.query.filter_by(tweet_id=tweet_id).first()
+        tweet_already_here = models.Tweet.query.filter_by(tweet_id=str(tweet_id)).first()
         if tweet_already_here:
             continue
         coordinates = tweet['coordinates']
@@ -39,7 +39,7 @@ def fetch_tweets(username, bus):
         lat, lon = unpacked_coordinates
         time_struct = time.strptime(tweet['created_at'], "%a %b %d %H:%M:%S +0000 %Y")
         time_struct = datetime.datetime(*time_struct[0:6])
-        twit = models.Tweet(tweet_id=tweet_id, body=tweet['text'], timestamp=time_struct, lat=lat, lon=lon, author=user)
+        twit = models.Tweet(tweet_id=str(tweet_id), body=tweet['text'], timestamp=time_struct, lat=lat, lon=lon, author=user)
         db.session.add(twit)
         db.session.commit()
 
