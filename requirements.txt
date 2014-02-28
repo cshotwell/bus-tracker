@@ -1,7 +1,14 @@
 Flask==0.10.1
+Flask-SQLAlchemy==1.0
 Jinja2==2.7.2
 MarkupSafe==0.18
+SQLAlchemy==0.9.3
+Tempita==0.5.2
 Werkzeug==0.9.4
+decorator==3.4.0
 gunicorn==18.0
 itsdangerous==0.23
+pbr==0.6
+sqlalchemy-migrate==0.8.2
+twitter==1.13.1
 wsgiref==0.1.2
