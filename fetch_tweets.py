@@ -45,7 +45,9 @@ def fetch_tweets(username, bus):
 
 def main():
     username = 'scwbkk'
-    #username = 'carl_talks'
+    bus = 'Midwest'
+    fetch_tweets(username, bus)
+    username = 'carl_talks'
     bus = 'Midwest'
     fetch_tweets(username, bus)
 
