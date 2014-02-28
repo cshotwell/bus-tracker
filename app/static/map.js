@@ -3,7 +3,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 function initialize() {
     var myLatlng = new google.maps.LatLng(39.4053947,-95.363801);
     var mapOptions = {
-        zoom: 5,
+        zoom: 6,
         center: myLatlng
     }
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -25,12 +25,39 @@ function initialize() {
     });
 
     var points = []
+    var cities = []
+    addBusMarkers();
+
+    function fetch_bus_icon(bus) {
+        var marker;
+        switch(bus) {
+            case "South":
+                break;
+            case "Mexico":
+                break;
+            case "Midwest":
+                break;
+            case "WestCoast":
+                break;
+            case "Southeast":
+                break;
+            case "North":
+                break;
+            case "Northeast":
+                break;
+            default:
+                marker = 'default';
+                break;
+        }
+        return marker;
+    }
 
     $(document).ready(function(){ 
         $.ajax({
             url: "/users", 
             success: function(data){
                 _.each(data.user_list, function(user){
+
                     points = _.map(user.tweets, function(tweet){
                         var new_marker = new google.maps.Marker({
                             position: new google.maps.LatLng(parseFloat(tweet.lat), parseFloat(tweet.lon)), 
@@ -42,7 +69,6 @@ function initialize() {
                         google.maps.event.addListener(new_marker, 'click', function() {
                             infowindow.close();
                             infowindow.load_content(new_marker, tweet.tweet_id);
-                            //infowindow(new_marker).open(map,new_marker);
                         });
 
                         return new_marker
@@ -51,6 +77,25 @@ function initialize() {
                 });
             }
         });
-    });
+    }); //document.ready
+
+    function addBusMarkers() {
+        starting_cities = [[39.079152,-94.5929357], //KC
+                [40.7277495,-73.9924231], //NYC
+                [20.6598988,-103.351442], //MEX
+                [47.6058384,-122.3317757], //SEA
+                [37.7682851,-122.4205412], //SFO
+                [27.9420771,-82.4707102], //tam
+                [36.1656477,-86.781603]];
+
+        cities = _.map(starting_cities, function(city) {
+            var new_city = new google.maps.Marker({
+                position: new google.maps.LatLng(city[0],city[1]), 
+                map: map, 
+                icon: "http://maps.google.com/mapfiles/ms/micons/bus.png"
+            });
+        });
+    }
+
 }
 
