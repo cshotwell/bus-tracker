@@ -3,18 +3,25 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />
 
 
     <title>StartupBus Tracker</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 	<script src="//platform.twitter.com/widgets.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj2yedxyxrRHosIpntkz3FjQl83PqLECY&v=3.exp&sensor=false"></script>
-			<script type="text/javascript" src="{{ url_for('static', filename='map.js') }}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj2yedxyxrRHosIpntkz3FjQl83PqLECY&v=3.exp&sensor=false"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='map.js') }}"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   </head>
+  <header>
+	<div class="page-header">
+		  <h1>Bustracker <small>A StartupBus twitter tracker</small></h1>
+  	</div>
+  </header>
   <body>
-	<p>some writing or information here</p>
     <div id="map-canvas"></div>
     <p>some more stuff here!</p>
   </body>
