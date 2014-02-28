@@ -1,4 +1,9 @@
 #topframe {
+	.btn-group{
+	  bottom: 15px;
+	  position: relative;
+	  top: 15px;
+	}
 }
 
 html, body, #map-canvas {
@@ -6,3 +11,4 @@ html, body, #map-canvas {
 	margin: 0px;
 	padding: 0px
       }
+

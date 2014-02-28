@@ -9,6 +9,7 @@ class User(db.Model):
     photo_url = db.Column(db.String(120))
     bus = db.Column(db.String(50))
     role = db.Column(db.SmallInteger, default = ROLE_USER)
+    last_updated = db.Column(db.DateTime)
     tweets = db.relationship('Tweet', backref = 'author', lazy = 'dynamic')
 
     @property

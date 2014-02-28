@@ -17,12 +17,63 @@
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   </head>
   <header>
-	<div class="page-header">
-		  <h1>Bustracker <small>A StartupBus twitter tracker</small></h1>
-  	</div>
+
+<div class="container">
+  <section>
+    <div class="page-header">
+      <h1 class="pull-left">
+        Bustracker
+		<small>A StartupBus Twitter Tracker</small>
+      </h1>
+      <div class="pull-right">
+
+<a class="btn btn-primary" data-toggle="modal" href="#myModal">Launch Modal</a>
+
+<div class="modal" id="myModal"><!-- note the use of "hide" class -->
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h3>Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a><!-- note the use of "data-dismiss" -->
+    <a href="#" class="btn btn-primary">Save changes</a>
+  </div>
+</div>
+
+
+
+
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </section>
+</div>
+
+
   </header>
   <body>
     <div id="map-canvas"></div>
     <p>some more stuff here!</p>
   </body>
+
+<!-- Button to trigger modal -->
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>
+
 </html>
