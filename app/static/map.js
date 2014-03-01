@@ -38,7 +38,7 @@ function initialize() {
                 marker = "https://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png";
                 break;
             case "Midwest":
-                marker = "https://maps.gstatic.com/mapfiles/ms2/micons/green-dot.png";
+                marker = "static/images/Carl_pin_blue.png";
                 break;
             case "WestCoast":
                 marker = "https://maps.gstatic.com/mapfiles/ms2/micons/ltblue-dot.png";
