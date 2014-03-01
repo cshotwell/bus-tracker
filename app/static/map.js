@@ -8,6 +8,8 @@ function initialize() {
     }
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+    var cities = []
+    addBusMarkers();
     var infowindow = new google.maps.InfoWindow({
             content: 'loading',
             load_content: function(marker, id){
@@ -25,8 +27,6 @@ function initialize() {
     });
 
     var points = []
-    var cities = []
-    addBusMarkers();
 //marker for carl
     var carl_marker = new google.maps.Marker({
         position: new google.maps.LatLng(41.5010421,-81.6942719),

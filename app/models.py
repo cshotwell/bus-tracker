@@ -3,6 +3,7 @@ from app import db
 ROLE_USER = 0
 ROLE_ADMIN = 1
 
+import datetime
 class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(64), unique = True)
@@ -24,7 +25,12 @@ class User(db.Model):
 
     @property
     def serialize_tweets(self):
-        return [tweet.serialize for tweet in self.tweets]
+        return_tweets = []
+        for tweet in self.tweets:
+            if (tweet.timestamp - datetime.datetime(2014, 3, 1, 19, 00, 20, 179434)).total_seconds() > 0:
+                tweet = tweet.serialize
+                return_tweets.append(tweet)
+        return return_tweets
 
 
     def __repr__(self):
