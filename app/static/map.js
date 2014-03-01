@@ -27,34 +27,46 @@ function initialize() {
     var points = []
     var cities = []
     addBusMarkers();
+//marker for carl
+    var carl_marker = new google.maps.Marker({
+        position: new google.maps.LatLng(41.5010421,-81.6942719),
+        map: map,
+        icon: "http://google-maps-icons.googlecode.com/files/rattlesnake.png"
+    });
+
+    cities.push(carl_marker);
+
+    google.maps.event.addListener(carl_marker, 'click', function() {
+        $('#AboutMeModal').modal('show')
+    });
+//end marker for carl
 
     function fetch_bus_icon(bus) {
         var marker;
         switch(bus) {
             case "South":
-                marker = "https://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png";
+                marker = "static/images/Carl_pin_OJ_3.png";
                 break;
             case "Mexico":
-                //marker = "https://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png";
-                marker = "static/images/Carl_pin_OJ.png";
+                marker = "static/images/Carl_pin_blue_3.png";
                 break;
             case "Midwest":
-                marker = "static/images/Carl_pin_OJ_2.png";
+                marker = "static/images/Carl_pin_green_3.png";
                 break;
             case "WestCoast":
-                marker = "https://maps.gstatic.com/mapfiles/ms2/micons/ltblue-dot.png";
+                marker = "static/images/Carl_pin_pink_3.png";
                 break;
             case "Southeast":
-                marker = "static/images/Carl_pin_blue.png";
+                marker = "static/images/Carl_pin_purp_3.png";
                 break;
             case "North":
-                marker = "https://maps.gstatic.com/mapfiles/ms2/micons/purple-dot.png";
+                marker = "static/images/Carl_pin_red_3.png";
                 break;
             case "Northeast":
-                marker = "https://maps.gstatic.com/mapfiles/ms2/micons/pink-dot.png";
+                marker = "static/images/Carl_pin_yel_3.png";
                 break;
             default:
-                marker = "http://labs.google.com/ridefinder/images/mm_20_black.png";
+                marker = "static/images/Carl_pin_ugh_3.png";
                 break;
         }
         return marker;
@@ -105,6 +117,5 @@ function initialize() {
             });
         });
     }
-
 }
 

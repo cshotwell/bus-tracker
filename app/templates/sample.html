@@ -18,62 +18,75 @@
   </head>
   <header>
 
-<div class="container">
-  <section>
-    <div class="page-header">
-      <h1 class="pull-left">
-        Bustracker
-		<small>A StartupBus Twitter Tracker</small>
-      </h1>
-      <div class="pull-right">
+	  <div id="topframe">
+		  <div class="container">
+			  <div class="page-header">
 
-<a class="btn btn-primary" data-toggle="modal" href="#myModal">Launch Modal</a>
+				  <h1 class="">
+					  Bustracker
+					  <small>A StartupBus Twitter Tracker</small>
+				  </h1>
+				  <div class="pull-right">
+					  <a class="btn btn-primary" data-toggle="modal" href="#signUpModal">Add Your Tweets</a>
+				  </div>
+				<div class="clearfix"></div>
+			  </div>
+		  </div>
+	  </div>
 
-<div class="modal" id="myModal"><!-- note the use of "hide" class -->
-  <div class="modal-header">
-    <button class="close" data-dismiss="modal">×</button>
-    <h3>Modal header</h3>
-  </div>
-  <div class="modal-body">
-    <p>One fine body…</p>
-  </div>
-  <div class="modal-footer">
-    <a href="#" class="btn" data-dismiss="modal">Close</a><!-- note the use of "data-dismiss" -->
-    <a href="#" class="btn btn-primary">Save changes</a>
-  </div>
-</div>
-
-
-
-
-      </div>
-      <div class="clearfix"></div>
-    </div>
-  </section>
-</div>
 
 
   </header>
   <body>
     <div id="map-canvas"></div>
-    <p>some more stuff here!</p>
-  </body>
 
-<!-- Button to trigger modal -->
- 
-<!-- Modal -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Modal header</h3>
-  </div>
-  <div class="modal-body">
-    <p>One fine body…</p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
-  </div>
-</div>
+</body>
+
+
+<footer>
+</form>
+</footer>
+
+
+<div class="modal fade" id="signUpModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Add your tweets!</h4>
+      </div>
+      <div class="modal-body">
+        <p>Here is a form for adding a twitter</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="AboutMeModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">What? There was no bus in Cleveland, Ohio!</h4>
+      </div>
+      <div class="modal-body">
+        <p>I am a rider on the Midwest Startup Bus and I made this site to help raise funds for my trip. If you want, you can help me out by clicking the donate button and sending me all of your hard earned dollars. Thanks!</p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 </html>
