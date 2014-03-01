@@ -59,3 +59,11 @@ def dump_datetime(value):
         return None
     return [value.strftime("%Y-%m-%d"), value.strftime("%H:%M:%S")]
 
+class SignUp(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    user_name = db.Column(db.String(50))
+    bus_name = db.Column(db.String(50))
+    added = db.Column(db.DateTime)
+
+    def __repr__(self):
+        return '<User %r %r>' % (self.user_name), (self.bus_name)
