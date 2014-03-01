@@ -58,65 +58,67 @@
       <div class="modal-body">
 
 <p>All I need is your twitter username and what bus you are on. Make sure to turn on twitter location services and pin your tweets!</p>
-<form role="form">
-  <div class="form-group">
-    <label for="user_name">Twitter Username</label>
-    <input class="form-control" id="user_name" placeholder="Enter your Twitter user name here">
-  </div>
 
-  <div class="radio">
-	  <label>
-		  <input type="radio" name="bus_name" id="Midwest" value="Midwest" checked>
-		  Midwest
-	  </label>
-  </div>
-  <div class="radio">
-	  <label>
-		  <input type="radio" name="bus_name" id="Mexico" value="Mexico">
-		  Mexico
-	  </label>
-  </div>
-  <div class="radio">
-	  <label>
-		  <input type="radio" name="bus_name" id="North" value="North" checked>
-		  North
-	  </label>
-  </div>
-  <div class="radio">
-	  <label>
-		  <input type="radio" name="bus_name" id="Northeast" value="Northeast" checked>
-		  Northeast
-	  </label>
-  </div>
-  <div class="radio">
-	  <label>
-		  <input type="radio" name="bus_name" id="WestCoast" value="WestCoast" checked>
-		  West Coast
-	  </label>
-  </div>
-  <div class="radio">
-	  <label>
-		  <input type="radio" name="bus_name" id="Southeast" value="Southeast" checked>
-		  Southeast
-	  </label>
-  </div>
-  <div class="radio">
-	  <label>
-		  <input type="radio" name="bus_name" id="South" value="South" checked>
-		  South
-	  </label>
-  </div>
-  <div class="radio">
-	  <label>
-		  <input type="radio" name="bus_name" id="None" value="None" checked>
-		  I am not on a bus!
-	  </label>
-  </div>
+<form role="form" action="sign_up" method="post">
 
-  <div class="modal-footer">
-	  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	  <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
+	<div class="form-group">
+		<label for="user_name">Twitter Username</label>
+		<input class="form-control" type="text" name="user_name" id="user_name" placeholder="Enter your Twitter user name here">
+	</div>
+
+	<div class="radio">
+		<label>
+			<input type="radio" name="bus_name" id="Midwest" value="Midwest" checked>
+			Midwest
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="bus_name" id="Mexico" value="Mexico">
+			Mexico
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="bus_name" id="North" value="North" checked>
+			North
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="bus_name" id="Northeast" value="Northeast" checked>
+			Northeast
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="bus_name" id="WestCoast" value="WestCoast" checked>
+			West Coast
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="bus_name" id="Southeast" value="Southeast" checked>
+			Southeast
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="bus_name" id="South" value="South" checked>
+			South
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="bus_name" id="None" value="None" checked>
+			I am not on a bus!
+		</label>
+	</div>
+
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</div>
 </form>
 </div>
 

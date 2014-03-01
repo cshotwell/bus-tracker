@@ -1,6 +1,8 @@
 from app import app, models
 from flask import Flask
 from flask import render_template
+from flask import redirect
+from app import db
 
 @app.route('/')
 def hello_world(name=None):
@@ -15,18 +17,20 @@ def show_users():
 
 @app.route('/sign_up', methods=['POST'])
 def sign_up():
-    print "here!"
     error = None
     if request.method == 'POST':
-        username = request.form['twitter_name']
-        bus = request.form['bus']
+        print request.form.keys
+        username = request.form['user_name']
+        bus = request.form['bus_name']
         save_sign_up(username, bus)
-    return request
+    return redirect('/')
         
 import datetime
+from flask import request
+from app import db
 
 def save_sign_up(username, bus):
     sign_up = models.SignUp(user_name=username, bus_name=bus, added=datetime.datetime.utcnow())
-    app.db.session.add(sign_up)
-    app.db.session.commit()
+    db.session.add(sign_up)
+    db.session.commit()
 

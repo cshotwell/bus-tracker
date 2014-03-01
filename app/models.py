@@ -66,4 +66,4 @@ class SignUp(db.Model):
     added = db.Column(db.DateTime)
 
     def __repr__(self):
-        return '<User %r %r>' % (self.user_name), (self.bus_name)
+        return '<User %r>' % (self.user_name + self.bus_name)
