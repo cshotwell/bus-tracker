@@ -5,7 +5,7 @@ import datetime
 from sqlalchemy import asc
 
 def update_least_updated():
-    users = models.User.query.order_by(asc(models.User.last_updated)).all()
+    users = models.User.query.order_by(asc(models.User.last_updated)).nullsfirst().all()
     print users
     user = users[0]
     user.last_updated = datetime.datetime.utcnow()
