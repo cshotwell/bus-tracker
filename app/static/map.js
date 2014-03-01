@@ -31,7 +31,7 @@ function initialize() {
     var carl_marker = new google.maps.Marker({
         position: new google.maps.LatLng(41.5010421,-81.6942719),
         map: map,
-        icon: "http://google-maps-icons.googlecode.com/files/rattlesnake.png"
+        icon: "static/images/Carl_house_red.png"
     });
 
     cities.push(carl_marker);
@@ -113,7 +113,7 @@ function initialize() {
             var new_city = new google.maps.Marker({
                 position: new google.maps.LatLng(city[0],city[1]), 
                 map: map, 
-                icon: "http://maps.google.com/mapfiles/ms/micons/bus.png"
+                icon: "static/images/Carl_bus_grey_2.png"
             });
         });
     }
