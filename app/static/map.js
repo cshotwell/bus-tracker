@@ -51,7 +51,7 @@ function initialize() {
                 marker = "static/images/Carl_pin_blue_3.png";
                 break;
             case "Midwest":
-                marker = "static/images/Carl_pin_green_3.png";
+                marker = "static/images/Carl_pin_red_3.png";
                 break;
             case "WestCoast":
                 marker = "static/images/Carl_pin_pink_3.png";
@@ -60,7 +60,7 @@ function initialize() {
                 marker = "static/images/Carl_pin_purp_3.png";
                 break;
             case "North":
-                marker = "static/images/Carl_pin_red_3.png";
+                marker = "static/images/Carl_pin_green_3.png";
                 break;
             case "Northeast":
                 marker = "static/images/Carl_pin_yel_3.png";
