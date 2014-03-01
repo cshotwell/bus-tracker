@@ -38,13 +38,13 @@ function initialize() {
                 marker = "https://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png";
                 break;
             case "Midwest":
-                marker = "static/images/Carl_pin_blue.png";
+                marker = "static/images/Carl_pin_OJ.png";
                 break;
             case "WestCoast":
                 marker = "https://maps.gstatic.com/mapfiles/ms2/micons/ltblue-dot.png";
                 break;
             case "Southeast":
-                marker = "static/images/Carl_pin_OJ.png";
+                marker = "static/images/Carl_pin_blue.png";
                 break;
             case "North":
                 marker = "https://maps.gstatic.com/mapfiles/ms2/micons/purple-dot.png";
