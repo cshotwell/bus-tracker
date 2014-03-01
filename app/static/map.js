@@ -35,10 +35,11 @@ function initialize() {
                 marker = "https://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png";
                 break;
             case "Mexico":
-                marker = "https://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png";
+                //marker = "https://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png";
+                marker = "static/images/Carl_pin_OJ.png";
                 break;
             case "Midwest":
-                marker = "static/images/Carl_pin_OJ.png";
+                marker = "static/images/Carl_pin_OJ_2.png";
                 break;
             case "WestCoast":
                 marker = "https://maps.gstatic.com/mapfiles/ms2/micons/ltblue-dot.png";
