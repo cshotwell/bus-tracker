@@ -44,7 +44,7 @@ function initialize() {
                 marker = "https://maps.gstatic.com/mapfiles/ms2/micons/ltblue-dot.png";
                 break;
             case "Southeast":
-                marker = "https://maps.gstatic.com/mapfiles/ms2/micons/yellow-dot.png";
+                marker = "static/images/Carl_pin_OJ.png";
                 break;
             case "North":
                 marker = "https://maps.gstatic.com/mapfiles/ms2/micons/purple-dot.png";
