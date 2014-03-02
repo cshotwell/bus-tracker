@@ -11,6 +11,8 @@ gunicorn==18.0
 itsdangerous==0.23
 pbr==0.6
 psycopg2==2.5.2
+sendgrid==0.2.8
+smtpapi==0.1.1
 sqlalchemy-migrate==0.8.2
 twitter==1.13.1
 wsgiref==0.1.2

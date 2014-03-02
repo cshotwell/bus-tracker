@@ -3,6 +3,7 @@ from flask import Flask
 from flask import render_template
 from flask import redirect
 from app import db
+import sendgrid
 
 @app.route('/')
 def hello_world(name=None):
@@ -19,10 +20,10 @@ def show_users():
 def sign_up():
     error = None
     if request.method == 'POST':
-        print request.form.keys
         username = request.form['user_name']
         bus = request.form['bus_name']
         save_sign_up(username, bus)
+        send_email(username, bus)
     return redirect('/')
         
 import datetime
@@ -33,4 +34,14 @@ def save_sign_up(username, bus):
     sign_up = models.SignUp(user_name=username, bus_name=bus, added=datetime.datetime.utcnow())
     db.session.add(sign_up)
     db.session.commit()
+
+def send_email(username, bus):
+    sg = sendgrid.SendGridClient('app22486788@heroku.com', '4khwfjdb')
+
+    message = sendgrid.Mail()
+    message.add_to('Carl <shotwellcarl@gmail.com>')
+    message.set_subject('New Sign Up')
+    message.set_text('There was a new sign up ' + username + " " + bus)
+    message.set_from('cbasst@gmail.com')
+    sg.send(message)
 
