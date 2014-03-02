@@ -17,6 +17,7 @@ consumer_key = CONSUMER_KEY
 consumer_secret = CONSUMER_SECRET
 
 def fetch_tweets(username, bus):
+    username = username.lower()
     api = twitter_api.Api(consumer_key, consumer_secret)
     results = api.get_timeline(username)
     for tweet in results: #iterate tweet results
