@@ -21,7 +21,7 @@ def fetch_tweets(username, bus):
     results = api.get_timeline(username)
     for tweet in results: #iterate tweet results
         tweet_user = tweet['user']
-        if tweet_user['screen_name'] != username: #if user does not match, skip it.
+        if tweet_user['screen_name'].lower() != username: #if user does not match, skip it.
             continue
         user = models.User.query.filter_by(username=username).first()
         if not user: #if there is no user, save this one
@@ -44,10 +44,7 @@ def fetch_tweets(username, bus):
         db.session.commit()
 
 def main():
-    username = 'scwbkk'
-    bus = 'Midwest'
-    fetch_tweets(username, bus)
-    username = 'carl_talks'
+    username = 'startupsquirrel'
     bus = 'Midwest'
     fetch_tweets(username, bus)
 
