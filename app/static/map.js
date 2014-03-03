@@ -27,6 +27,7 @@ function initialize() {
     });
 
     var points = []
+    var lines = []
 //marker for carl
     var carl_marker = new google.maps.Marker({
         position: new google.maps.LatLng(41.5010421,-81.6942719),
@@ -97,6 +98,29 @@ function initialize() {
 
                 });
             }
+        });
+
+        $.ajax({
+            url: "http://subtracker.herokuapp.com/allPointsLowPrecision",
+            success: function(data){
+                var lat_lng = [];
+                _.each(data.routes, function(route){
+                    // console.log(route.name); //works
+                    lines = _.map(route.points, function(point){
+                        //this is sending commas or zeros
+                         lat_lng.push(new google.maps.LatLng(parseFloat(point.lat), parseFloat(point.lon)))
+                    });
+                    console.log(lat_lng)
+
+                    var flightPath = new google.maps.Polyline({
+                        path: lines,
+                        geodesic: true,
+                        strokeColor: '#FF0000',
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2
+                    });
+                });
+            } //success
         });
     }); //document.ready
 
