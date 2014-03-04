@@ -27,7 +27,7 @@ function initialize() {
     });
 
     var points = []
-    var lines = []
+    //var lines = []
 //marker for carl
     var carl_marker = new google.maps.Marker({
         position: new google.maps.LatLng(41.5010421,-81.6942719),
@@ -73,6 +73,37 @@ function initialize() {
         return marker;
     }
 
+    function fetch_bus_line_color(bus) {
+        var marker;
+        switch(bus) {
+            case "South":
+                marker = "#FEB000";
+                break;
+            case "Mexico":
+                marker = "#22DCFF";
+                break;
+            case "Midwest":
+                marker = "#FC4E00";
+                break;
+            case "West Coast":
+                marker = "#F012D6";
+                break;
+            case "Southeast":
+                marker = "#C901F3";
+                break;
+            case "North":
+                marker = "#32E972";
+                break;
+            case "Northeast":
+                marker = "#ECDE00";
+                break;
+            default:
+                marker = "static/images/Carl_pin_ugh_3.png";
+                break;
+        }
+        return marker;
+    }
+
     $(document).ready(function(){ 
         $.ajax({
             url: "/users", 
@@ -103,22 +134,21 @@ function initialize() {
         $.ajax({
             url: "http://subtracker.herokuapp.com/allPointsLowPrecision",
             success: function(data){
-                var lat_lng = [];
                 _.each(data.routes, function(route){
-                    // console.log(route.name); //works
-                    lines = _.map(route.points, function(point){
+                    var lat_lng = [];
+                    var lines = _.map(route.points, function(point){
                         //this is sending commas or zeros
                          lat_lng.push(new google.maps.LatLng(parseFloat(point.lat), parseFloat(point.lon)))
                     });
-                    console.log(lat_lng)
 
                     var flightPath = new google.maps.Polyline({
-                        path: lines,
+                        path: lat_lng,
                         geodesic: true,
-                        strokeColor: '#FF0000',
+                        strokeColor: fetch_bus_line_color(route.name),
                         strokeOpacity: 1.0,
-                        strokeWeight: 2
+                        strokeWeight: 5
                     });
+                    flightPath.setMap(map);
                 });
             } //success
         });
