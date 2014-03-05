@@ -3,7 +3,7 @@ import update_user
 
 sched = Scheduler()
 
-@sched.interval_schedule(seconds=10)
+@sched.interval_schedule(seconds=7)
 def timed_job():
     update_user.update_least_updated()
 
