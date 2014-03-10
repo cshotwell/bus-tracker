@@ -36,7 +36,7 @@ def save_sign_up(username, bus):
     db.session.commit()
 
 def send_email(username, bus):
-    sg = sendgrid.SendGridClient('app22486788@heroku.com', '4khwfjdb')
+    sg = sendgrid.SendGridClient(app.SENDGRID_KEY, app.SENDGRID_PASS)
 
     message = sendgrid.Mail()
     message.add_to('Carl <shotwellcarl@gmail.com>')
